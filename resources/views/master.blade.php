@@ -52,5 +52,3 @@
 @yield('scripts')
 </body>
 </html>
-
-test`
