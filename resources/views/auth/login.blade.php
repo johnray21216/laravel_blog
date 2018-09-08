@@ -6,6 +6,9 @@
       <!--start l-main-->
       <main class="l-main js-main">
           <div class="l-main-block"></div>
+          @if ($errors->any())
+            {{ implode('', $errors->all('<div>:message</div>')) }}
+          @endif
           <form method="post" class="form" action="{{route('login')}}">
             @csrf
               <label for="user-id" class="form-title">USER ID</label>
