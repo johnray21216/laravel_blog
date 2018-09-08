@@ -23,6 +23,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin-list');
+        return view('admin.admin-list');
+    }
+
+    /**
+     * Show post form
+     *
+     */
+    public function getPostForm()
+    {
+        return view('post.admin-post');
     }
 }

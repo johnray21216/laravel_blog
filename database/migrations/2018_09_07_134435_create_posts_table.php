@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArchivesTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateArchivesTable extends Migration
      */
     public function up()
     {
-        Schema::create('archives', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->text('contents');
-            $table->string('image');
+            $table->text('inquiry');
+            $table->string('filename')->nullable();
+            $table->string('mime')->nullable();
+            $table->string('original_filename')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateArchivesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('archives');
+        Schema::dropIfExists('posts');
     }
 }

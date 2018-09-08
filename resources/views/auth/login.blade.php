@@ -11,10 +11,10 @@
           @endif
           <form method="post" class="form" action="{{route('login')}}">
             @csrf
-              <label for="user-id" class="form-title">USER ID</label>
-              <input type="text" id="user-id" class="input input-text">
+              <label for="username" class="form-title">USERNAME</label>
+              <input type="text" id="username" class="input input-text" name="username">
               <label for="password" class="form-title">PASSWORD</label>
-              <input type="text" id="password" class="input input-text">
+              <input type="password" id="password" class="input input-text" name="password">
               <label for="submit" class="form-button">
                   <div class="button">
   <p class="button-text">Login</p>
