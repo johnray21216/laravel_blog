@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
 use App\Post;
 use Illuminate\Support\Facades\Input;
 
@@ -28,7 +29,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.admin-list');
+        $posts = DB::table('posts')->orderByRaw('created_at DESC')->paginate(5);
+        return view('admin.admin-list',['posts' => $posts]);
     }
 
     /**

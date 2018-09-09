@@ -15,44 +15,21 @@
 <p class="button-text">New Article</p>
 </div>
         </a>
+        @if($posts)
         <ul class="archive archive-admin">
-
+            @foreach($posts as $post)
                 <li class="archive-item">
                 <a href="#" class="post-article">
-<time class="post-article-date" datetime="2016-9-16">16 Sep, 2016</time>
-<h1 class="post-article-title">The Best Wii U Games of 2016</h1>
+<time class="post-article-date" datetime="2016-9-16">{{ Carbon\Carbon::parse($post->created_at)->format('Y-m-d') }}</time>
+<h1 class="post-article-title">{{$post->title}}</h1>
 </a>
                 </li>
-
-                <li class="archive-item">
-                <a href="#" class="post-article">
-<time class="post-article-date" datetime="2016-9-16">16 Sep, 2016</time>
-<h1 class="post-article-title">VOTING FOR THE PEOPLE&#39;S CHOICE BEST WII U GAME OF 2016!</h1>
-</a>
-                </li>
-
-                <li class="archive-item">
-                <a href="#" class="post-article">
-<time class="post-article-date" datetime="2016-9-16">16 Sep, 2016</time>
-<h1 class="post-article-title">Gears of War film to rise like a Fenix thanksto Universal</h1>
-</a>
-                </li>
-
-                <li class="archive-item">
-                <a href="#" class="post-article">
-<time class="post-article-date" datetime="2016-9-16">16 Sep, 2016</time>
-<h1 class="post-article-title">Trailer Roundup - October 5, 2016</h1>
-</a>
-                </li>
-
-                <li class="archive-item">
-                <a href="#" class="post-article">
-<time class="post-article-date" datetime="2016-9-16">16 Sep, 2016</time>
-<h1 class="post-article-title">PlayStation VR: A Hardcore Console Gamer’s Perspective</h1>
-</a>
-                </li>
-
+            @endforeach
         </ul>
+        {{$posts->links()}}
+    @else
+        <p style="text-align:center;">No Posts created Yet!</p>
+    @endif
     </main>
     <!--end l-main-->
 
