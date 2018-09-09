@@ -7,7 +7,9 @@
       <main class="l-main js-main">
           <div class="l-main-block"></div>
           @if ($errors->any())
-            {{ implode('', $errors->all('<div>:message</div>')) }}
+            @foreach($errors->all() as $message)
+              <div>{{$message}}</div>
+            @endforeach
           @endif
           <form method="post" class="form" action="{{route('login')}}">
             @csrf

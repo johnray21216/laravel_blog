@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Route::get('/admin-list', 'HomeController@index')->name('home');
 Route::get('/admin-post', 'HomeController@getPostForm')->name('admin.post');
+Route::post('/admin-post', 'HomeController@createPost')->name('admin.post');
 
 //Route::get('/admin-login','Auth\AuthController@showLoginForm')->name('login');
 

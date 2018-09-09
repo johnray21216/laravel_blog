@@ -7,6 +7,9 @@
     <!--start l-main-->
     <main class="l-main js-main">
         <div class="l-main-block"></div>
+        @if(Session::has('success'))
+          <p>{{Session::get('success')}}</p>
+        @endif
         <a href="{{route('admin.post')}}" class="l-main-button">
             <div class="button">
 <p class="button-text">New Article</p>
