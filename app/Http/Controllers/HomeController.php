@@ -75,9 +75,30 @@ class HomeController extends Controller
 
       }
 
-      public function getPost($id)
+      public function editPost($id)
       {
           $post = Post::find($id);
-          return view('post.single', ['post' => $post]);
+          return view('post.edit-post', ['post' => $post]);
+      }
+
+      public function edit(Request $request)
+      {
+          request()->validate([
+                'title' => 'required|string',
+                'contents' => 'required|string',
+                'image' => 'required|image'
+              ]);
+          $image = $request->file('image');
+          $extension = $image->getClientOriginalExtension();
+          Storage::disk('public')->put($image->getFileName().'.'.$extension, File::get($image));
+
+          Post::where('id',Input::get('id'))->update(array(
+           'title' => Input::get('title'),
+           'contents' => Input::get('contents'),
+           'mime' => $image->getClientMimeType(),
+           'original_filename' => $image->getClientOriginalName(),
+           'filename' => $image->getFileName().'.'.$extension
+        ));
+        return redirect()->route('home')->with('status','Post Edit Successfully!');
       }
 }

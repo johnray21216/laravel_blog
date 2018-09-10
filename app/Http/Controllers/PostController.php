@@ -18,4 +18,10 @@ class PostController extends Controller
       $posts = DB::table('posts')->orderByRaw('created_at DESC')->paginate(5);
       return view('post.archive',['posts' => $posts]);
     }
+
+    public function getPost($id)
+    {
+        $post = Post::find($id);
+        return view('post.single', ['post' => $post]);
+    }
 }

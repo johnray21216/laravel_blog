@@ -7,8 +7,8 @@
     <!--start l-main-->
     <main class="l-main js-main">
         <div class="l-main-block"></div>
-        @if(Session::has('success'))
-          <p>{{Session::get('success')}}</p>
+        @if(session('status'))
+          <p>{{session('status')}}</p>
         @endif
         <a href="{{route('admin.post')}}" class="l-main-button">
             <div class="button">
@@ -19,7 +19,7 @@
         <ul class="archive archive-admin">
             @foreach($posts as $post)
                 <li class="archive-item">
-                <a href="{{ route('single.post', ['id' => $post->id]) }}" class="post-article">
+                <a href="{{ route('admin.edit', ['id' => $post->id]) }}" class="post-article">
 <time class="post-article-date" datetime="{{ Carbon\Carbon::parse($post->created_at)->format('Y-m-d') }}">{{ Carbon\Carbon::parse($post->created_at)->format('Y-m-d') }}</time>
 <h1 class="post-article-title">{{$post->title}}</h1>
 </a>

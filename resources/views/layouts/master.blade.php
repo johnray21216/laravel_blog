@@ -40,10 +40,10 @@
               <a href="#" class="nav-link">TOP</a>
           </li>
           <li class="nav-item">
-              <a href="#" class="nav-link">Facebook</a>
+              <a href="https://www.facebook.com/facebook/" class="nav-link" target="_blank">Facebook</a>
           </li>
           <li class="nav-item">
-              <a href="#" class="nav-link">Twitter</a>
+              <a href="https://twitter.com/twitter" class="nav-link" target="_blank">Twitter</a>
           </li>
           @guest
           <li class="nav-item">

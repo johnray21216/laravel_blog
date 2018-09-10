@@ -18,11 +18,13 @@ Route::get('/archive', 'PostController@getArchive')->name('post.archive');
 
 
 Route::get('/admin-list', 'HomeController@index')->name('home');
+Route::get('/admin-edit/{id}', 'HomeController@editPost')->name('admin.edit');
+Route::post('/edit', 'HomeController@edit')->name('edit.post');
 Route::get('/admin-post', 'HomeController@getPostForm')->name('admin.post');
 Route::post('/admin-post', 'HomeController@createPost')->name('admin.post');
 
 
-Route::get('/single/{id}', 'HomeController@getPost')->name('single.post');
+Route::get('/single/{id}', 'PostController@getPost')->name('single.post');
 
 //Route::get('/admin-login','Auth\AuthController@showLoginForm')->name('login');
 
