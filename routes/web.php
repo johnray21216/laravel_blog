@@ -21,6 +21,9 @@ Route::get('/admin-list', 'HomeController@index')->name('home');
 Route::get('/admin-post', 'HomeController@getPostForm')->name('admin.post');
 Route::post('/admin-post', 'HomeController@createPost')->name('admin.post');
 
+
+Route::get('/single/{id}', 'HomeController@getPost')->name('single.post');
+
 //Route::get('/admin-login','Auth\AuthController@showLoginForm')->name('login');
 
 //Route::post('/admin-login','Auth\AuthController@login');
