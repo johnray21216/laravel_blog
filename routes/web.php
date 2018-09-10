@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('post.index');
-});
+Route::get('/', 'PostController@getIndex')->name('index');
 
 //Auth::routes();
+Route::get('/archive', 'PostController@getArchive')->name('post.archive');
+
 
 Route::get('/admin-list', 'HomeController@index')->name('home');
 Route::get('/admin-post', 'HomeController@getPostForm')->name('admin.post');

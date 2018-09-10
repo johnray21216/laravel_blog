@@ -11,6 +11,5 @@
             <div class="l-header-text">
                 <p>ADMIN PAGE</p>
             </div>
-
     </div>
 </header>

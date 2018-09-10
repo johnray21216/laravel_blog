@@ -6,87 +6,33 @@
 
   <!--start l-main-->
   <main class="l-main js-main">
+    @if($posts)
       <div class="l-main-block"></div>
       <div class="archive">
           <ul class="archive-list">
-
+            @foreach($posts as $post)
               <li class="archive-item">
                   <article class="card">
-<a href="#" class="card-link">
-  <img src="../assets/images/sample1.jpg" alt="" class="card-image">
+<a href="{{ route('single.post', ['id' => $post->id]) }}" class="card-link">
+  <img src="{{url('uploads/'.$post->filename)}}" alt="" class="card-image">
   <div class="card-bottom">
-      <h1 class="card-title">The Best Wii U Games of 2016</h1>
-      <time class="card-date" datetime="2016-9-16">
-          16 Sep, 2016
+      <h1 class="card-title">{{$post->title}}</h1>
+      <time class="card-date" datetime="{{ Carbon\Carbon::parse($post->created_at)->format('Y-m-d') }}">
+          {{ Carbon\Carbon::parse($post->created_at)->format('F d Y') }}
       </time>
   </div>
 </a>
 </article>
                   </li>
-
-              <li class="archive-item">
-                  <article class="card">
-<a href="#" class="card-link">
-  <img src="../assets/images/sample2.jpg" alt="" class="card-image">
-  <div class="card-bottom">
-      <h1 class="card-title">VOTING FOR THE PEOPLE&#39;S CHOICE BEST WII U GAME OF 2016!</h1>
-      <time class="card-date" datetime="2016-9-16">
-          16 Sep, 2016
-      </time>
-  </div>
-</a>
-</article>
-                  </li>
-
-              <li class="archive-item">
-                  <article class="card">
-<a href="#" class="card-link">
-  <img src="../assets/images/sample3.jpg" alt="" class="card-image">
-  <div class="card-bottom">
-      <h1 class="card-title">Gears of War film to rise like a Fenix thanksto Universal</h1>
-      <time class="card-date" datetime="2016-9-16">
-          16 Sep, 2016
-      </time>
-  </div>
-</a>
-</article>
-                  </li>
-
-              <li class="archive-item">
-                  <article class="card">
-<a href="#" class="card-link">
-  <img src="../assets/images/sample4.jpg" alt="" class="card-image">
-  <div class="card-bottom">
-      <h1 class="card-title">Trailer Roundup - October 5, 2016</h1>
-      <time class="card-date" datetime="2016-9-16">
-          16 Sep, 2016
-      </time>
-  </div>
-</a>
-</article>
-                  </li>
-
-              <li class="archive-item">
-                  <article class="card">
-<a href="#" class="card-link">
-  <img src="../assets/images/sample5.jpg" alt="" class="card-image">
-  <div class="card-bottom">
-      <h1 class="card-title">PlayStation VR: A Hardcore Console Gamer’s Perspective</h1>
-      <time class="card-date" datetime="2016-9-16">
-          16 Sep, 2016
-      </time>
-  </div>
-</a>
-</article>
-                  </li>
-
+    @endforeach
           </ul>
       </div>
-      <a href="#" class="archive-button">
+      <a href="{{route('post.archive')}}" class="archive-button">
           <div class="button">
 <p class="button-text">More</p>
 </div>
       </a>
+  @endif
   </main>
   <!--end l-main-->
 

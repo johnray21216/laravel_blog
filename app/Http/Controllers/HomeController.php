@@ -45,7 +45,7 @@ class HomeController extends Controller
     public function createPost(Request $request)
     {
       request()->validate([
-            'title' => 'required|string|min:10',
+            'title' => 'required|string',
             'contents' => 'required|string',
             'image' => 'required|image'
           ]);
